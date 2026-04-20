@@ -1,5 +1,7 @@
 # System Design 
 
+## Concurrency Control  in Distributed System
+
 ```text
 # What is Concurrency Control ?
 Concurrency control ensures that multiple users or threads can access and modify data at the same time without causing inconsistency or errors.
