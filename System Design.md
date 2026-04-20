@@ -30,3 +30,47 @@ A race condition occurs when two or more threads access shared data at the same 
 
 
 
+###  Scenario :: Many concurrent request tries to book same Movie threater Seat
+
+
+```text
+User1      User2      User3
+
+ID     Status
+10     FREE
+
+{
+  Read Seat Row with ID: 10
+  If Free:
+      Logic to Change the Status from Free to Booked
+      Update the DB
+}
+
+
+In above scenario there is a chance of getting data inconsistency.
+
+----------------------------------------------------------------------
+
+1) Using "SYNCHRONIZED" for the Critical Section:
+
+synchronized () 
+{
+    Read Seat Row with ID: 10
+    If Free:
+        Logic to Change the Status from Free to Booked;
+        Update the DB;
+}
+
+ID     Status
+10     FREE
+
+
+The problem is solved wiht synchronization  concept
+
+-Will this solution works for Distributed System?
+-No, Synchronization will work for Distributed System 
+```
+---
+
+
+
